@@ -1,0 +1,10 @@
+[
+    "Keras",
+    "Matplotlib",
+    "NumPy",
+    "OpenCV",
+    "Pandas",
+    "scikit-learn",
+    "Streamlit",
+    "TensorFlow"
+]
