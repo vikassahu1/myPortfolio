@@ -139,7 +139,6 @@ async function createIconBalls(containerSelector, iconsPath, imgfile) {
         drop-shadow-[0_10px_8px_rgba(0,0,0,0.3)]"
     >
 </div>
-
         `;
         container.appendChild(ballElement);
     });
