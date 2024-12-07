@@ -11,8 +11,33 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+ <style>
+        /* Hide the default cursor */
+        body {
+            cursor: none;
+        }
+
+        /* Cursor Follower Styling */
+        .cursor-follower {
+            z-index: 9999; /* Highest z-index to ensure it stays on top */
+            position: fixed; /* Fixed position to follow the viewport */
+            transition: transform 0.05s ease-out; /* Smooth transition for motion */
+            pointer-events: none; /* Prevent interaction */
+            
+        }
+
+        /* Force Uniform Stacking Context */
+        * {
+            position: relative; /* Force all elements into a single stacking context */
+        }
+    </style>
+
 </head>
 <body id="main" class="bg-black text-white font-sans relative mx-7">
+        <!-- Cursor Follower -->
+    <div id="cursor" class="cursor-follower fixed top-0 left-0 w-5 h-5 bg-white rounded-full shadow-[10px_10px_20px_rgba(255,255,255,0.4)] pointer-events-none"></div>
+
 
         <nav class="relative mt-4 z-10 flex justify-between items-center h-[70px] px-10 md:px-15 ">
             <div class="text-5xl font-semibold font-mono ">
@@ -47,7 +72,7 @@
 
         <!-- Hero Section  -->
         <div class="hero_section h-[calc(100vh-80px)] flex">
-            <div class="hero_left w-2/3 h-full flex justify-center items-start flex-col pl-24 pr-6 pb-36 text-white">
+            <div class="hero_left w-2/3 h-full flex justify-center items-start flex-col pl-24 z-40 pr-6 pb-36 text-white">
                 <!-- Name Section -->
                 <h3 class="text-lg  text-white font-light tracking-wide">Hi! I’m</h3>
                 <h1 class="text-[clamp(135px,6vw,90px)] font-semibold font-pataka text-cynthia leading-tight bg-gradient-to-r from-whitebg-clip-text">
@@ -70,8 +95,8 @@
         </div>
 
 <!-- About Section -->
-<div class="relative h-[100vh] bg-gray-400 rounded-lg shadow-lg p-8 md:flex items-center space-y-10 md:space-y-0 md:space-x-10">
-    
+<div id="about" class="relative h-[100vh] bg-gray-400 rounded-lg shadow-lg p-8 md:flex items-center space-y-10 md:space-y-0 md:space-x-10 overflow-hidden">
+
     <!-- Image Section (Right) -->
     <div class="flex items-center justify-center md:w-1/2">
         <div class="relative">
@@ -81,37 +106,45 @@
     </div>
 
     <!-- Text Section (Left) -->
-    <div class="text-center md:w-1/2">
+    <div id="about-text" class="relative text-center md:w-1/2">
         <h1 class="text-4xl font-bold text-gray-800 mb-6">About</h1>
-        <p class="text-lg font-light leading-relaxed text-gray-700">
-            Miraat is a mental health platform dedicated to helping individuals understand, manage, and improve their emotional well-being. With personalized assessments, AI-powered chatbot support, and valuable resources, Miraat provides a safe space for users to track their progress, find expert guidance, and access mental health tools to enhance their overall well-being. 
-        </p>
-        <p class="text-lg font-light leading-relaxed text-gray-700 mt-4">
-            Your journey to a healthier mind starts here. Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci officia dolorum praesentium alias magni dolorem et ad tenetur reprehenderit eius!
+        <p class="text-lg font-light leading-relaxed text-gray-700 break-words whitespace-normal">
+            Miraat is a mental health platform dedicated to helping individuals understand, manage, and improve their emotional well-being. With personalized assessments, AI-powered chatbot support, and valuable resources, Miraat provides a safe space for users to track their progress, find expert guidance, and access mental health tools to enhance their overall well-being.
         </p>
     </div>
+
+    <!-- Optional Overlay for Contrast -->
+    <div class="absolute top-0 left-0 h-full w-full bg-black opacity-20 -z-10"></div>
 </div>
+
  
 <!-- Project Section -->
  <div class="project_section mt-20 mb-20">
     <h1 class="text-2xl  text-cynthia">Projects</h1>
 
-    <div class="projects">
-        <div class="MIRAAT flex border-b-[0.1px] border-t-[0.1px] border-cynthia mt-8 items-center justify-between text-cynthia hover:text-cynthia">
-            <h1 class="text-[clamp(105px,6vw,90px)] font-semibold font-pataka py-9 ">MIRAAT</h1>
+    <div id = "projects" class="projects">
+
+        <div class="MIRAAT relative flex border-b-[0.1px] border-t-[0.1px] border-cynthia mt-8 items-center justify-between text-cynthia hover:text-cynthia project">
+            <div class="absolute elem h-[130%] w-[50%] bg-red-500 z-20 translate-x-[-50%] translate-y-[-40%] opacity-0 pointer-events-none"></div>
+            <h1 class="text-[clamp(105px,6vw,90px)] font-semibold font-pataka py-9 hover:text-cynthia">MIRAAT</h1>
             <h2 class="text-center">2024</h2>
         </div>
 
-        <div class="CLOTHSHOP flex border-b-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-cynthia">
-            <h1 class="text-[clamp(105Px,6vw,90px)] font-semibold font-pataka py-9 hover:text-cynthia">CLOTHSHOP</h1>
+
+        <div class="CLOTHSHOP  flex border-b-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-cynthia relative project">
+            <div class="absolute elem h-[130%] w-[50%] bg-green-500 z-20 translate-x-[-50%] translate-y-[-50%] opacity-0 pointer-events-none"></div>
+
+            <h1 class="text-[clamp(105Px,6vw,90px)] font-semibold font-pataka py-9 ">CLOTHSHOP</h1>
             <h2 class="text-center">2024</h2>
         </div>
-        <div class="RAGENGINE flex border-b-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-gray-500">
-            <h1 class="text-[clamp(105px,6vw,90px)] font-semibold font-pataka py-9 hover:text-cynthia">RAGENGINE</h1>
+        <div class="RAGENGINE flex border-b-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-gray-500 relative project">
+            <div class="absolute elem h-[130%] w-[50%] bg-indigo-500 z-20 translate-x-[-50%] translate-y-[-50%] opacity-0 pointer-events-none"></div>
+            <h1 class="text-[clamp(105px,6vw,90px)] font-semibold font-pataka py-9 ">RAGENGINE</h1>
             <h2 class="text-center">2024</h2>
         </div>
-        <div class="TEXTEDITS flex border-b-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-cynthia">
-            <h1 class="text-[clamp(105px,6vw,90px)] font-semibold font-pataka py-9 hover:text-cynthia">TEXTEDITS</h1>
+        <div class="TEXTEDITS flex border-b-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-cynthia relative project">
+            <div class="absolute elem h-[130%] w-[50%] bg-gray-500 z-20 translate-x-[-50%] translate-y-[-50%] opacity-0 pointer-events-none"></div>
+            <h1 class="text-[clamp(105px,6vw,90px)] font-semibold font-pataka py-9 ">TEXTEDITS</h1>
             <h2 class="text-center">2024</h2>
         </div>
     </div>
@@ -256,8 +289,8 @@
       </div>
     </div>
   </footer>
-  
-<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="module" src="../static/script.js"></script>

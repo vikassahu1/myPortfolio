@@ -187,37 +187,121 @@ document.addEventListener('DOMContentLoaded', () => {
 //     moveIndicator(link);
 //   }
 // });
+// Get the cursor follower element
+        // Get the cursor element and skills section
+        const cursor = document.getElementById("cursor");
+        const skillsSection = document.getElementById("projects");
+
+        // Variable to track whether the mouse is over the skills section
+        let isOverSkills = false;
+
+        // Event listener for mouse movement
+        document.addEventListener("mousemove", (event) => {
+            const { clientX, clientY } = event;
+
+            // Move the cursor with mouse position
+            cursor.style.transform = `translate(${clientX}px, ${clientY}px)`;
+
+            // If the mouse is over the skills section, expand cursor and show 'view'
+            if (isOverSkills) {
+                cursor.style.width = "60px";
+                cursor.style.height = "60px";
+                cursor.style.backgroundColor = "white";
+                cursor.style.color  = "black";
+                cursor.style.visibility = "visible";
+                cursor.textContent = "VIEW";
+                cursor.style.display = "flex";
+                cursor.style.alignItems = "center";
+                cursor.style.justifyContent = "center";
+            } else {
+                cursor.style.width = "20px";
+                cursor.style.height = "20px";
+                cursor.style.backgroundColor = "white";
+                cursor.style.visibility = "visible";
+                cursor.textContent = ""; // Remove text from the cursor
+            }
+        });
+
+        // Detect mouse enter and leave on skills section
+        skillsSection.addEventListener("mouseenter", () => {
+            isOverSkills = true;
+        });
+
+        skillsSection.addEventListener("mouseleave", () => {
+            isOverSkills = false;
+        });
 
 
 
 
-// // Gsap part
-// gsap.registerPlugin(ScrollTrigger);
-
-// // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
-
-// const locoScroll = new LocomotiveScroll({
-//   el: document.querySelector("#main"),
-//   smooth: true
-// });
-// // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
-// locoScroll.on("scroll", ScrollTrigger.update);
-
-// // tell ScrollTrigger to use these proxy methods for the "#main" element since Locomotive Scroll is hijacking things
-// ScrollTrigger.scrollerProxy("#main", {
-//   scrollTop(value) {
-//     return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-//   }, // we don't have to define a scrollLeft because we're only scrolling vertically.
-//   getBoundingClientRect() {
-//     return {top: 0, left: 0, width: window.innerWidth, height: window.innerHeight};
-//   },
-//   // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-//   pinType: document.querySelector("#main").style.transform ? "transform" : "fixed"
-// });
 
 
-// // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
-// ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
-// // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
-// ScrollTrigger.refresh();
+
+//  text rendering 
+var clutter = new Array();
+document.querySelector("#about-text>p").textContent.split(" ").forEach(function (dets) {
+    clutter.push(`<span>${dets}</span>`); // Correct closing span tag
+});
+let sen =  clutter.join(" ");
+document.querySelector("#about-text>p").innerHTML = sen; // Correct selector
+
+// Apply GSAP animation
+gsap.to("#about-text>p>span", {
+    scrollTrigger: {
+        trigger: `#about-text`, // Use parent container as trigger
+        start: `top bottom`,
+        end: `top top`,
+        scroller: `#main`, // Ensure the scroller matches your locomotive-scroll configuration
+        scrub: 5,
+    },
+    stagger: 0.2,
+    color: `#fff`,
+});
+
+
+
+
+
+// To make the images move with the cursor.
+document.querySelectorAll(".project").forEach(function(elem){
+    var rotate = 0;
+    var diffrot = 0;
+
+    elem.addEventListener("mouseleave", function (dets) {
+        gsap.to(elem.querySelector(".elem"), {
+        opacity: 0,
+        ease: Power3,
+        // duration: 0.5,
+        });
+
+        gsap.to(elem.querySelector("h1"),{
+            opacity: 1
+        });
+
+    });
+
+
+    elem.addEventListener("mousemove",function(dets){
+    // cursor ka element ke top se distance de denge.
+    var diff = dets.clientY - elem.getBoundingClientRect().top;
+
+    diffrot = dets.clientX - rotate;
+    // jitna rotate ki value hogi image utna hi rotate karega par ham clamp laga denge 20 deg par taki isse jyada rotate na kare 
+    rotate = dets.clientX;
+
+    gsap.to(elem.querySelector(".elem"),{
+        opacity:1,
+        ease: Power3,
+        top: diff,
+        left: dets.clientX,
+        rotate: gsap.utils.clamp(-20, 20, diffrot * 0.5),
+        });
+
+    gsap.to(elem.querySelector("h1"),{
+        opacity: .3,
+    });
+    
+
+    });
+});
