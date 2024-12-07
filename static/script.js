@@ -2,6 +2,15 @@ import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     const scroll = new LocomotiveScroll({
+//         el: document.querySelector('#main'),
+//         smooth: true
+//     });
+// });
+
+
 const container = document.getElementById("three-js-container");
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
@@ -214,8 +223,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 cursor.style.alignItems = "center";
                 cursor.style.justifyContent = "center";
             } else {
-                cursor.style.width = "20px";
-                cursor.style.height = "20px";
+                cursor.style.width = "15px";
+                cursor.style.height = "15px";
                 cursor.style.backgroundColor = "white";
                 cursor.style.visibility = "visible";
                 cursor.textContent = ""; // Remove text from the cursor
@@ -263,45 +272,59 @@ gsap.to("#about-text>p>span", {
 
 
 
-// To make the images move with the cursor.
-document.querySelectorAll(".project").forEach(function(elem){
-    var rotate = 0;
-    var diffrot = 0;
 
-    elem.addEventListener("mouseleave", function (dets) {
-        gsap.to(elem.querySelector(".elem"), {
-        opacity: 0,
-        ease: Power3,
-        // duration: 0.5,
+
+// div hover effect
+document.querySelectorAll(".project").forEach(function (elem) {
+    let rotate = 0;
+    let diffrot = 0;
+    let isMoving = false; // For throttling
+
+    // Pre-select elements to avoid repeated queries
+    const elemOverlay = elem.querySelector(".elem");
+    const elemTitle = elem.querySelector("h1");
+
+    // Mouse leave event
+    elem.addEventListener("mouseleave", function () {
+        gsap.to(elemOverlay, {
+            opacity: 0,
+            ease: Power2.easeOut,
         });
 
-        gsap.to(elem.querySelector("h1"),{
-            opacity: 1
+        gsap.to(elemTitle, {
+            opacity: 1,
+            ease: Power2.easeOut,
         });
-
     });
 
+    // Mouse move event with throttling
+    elem.addEventListener("mousemove", function (event) {
+        if (isMoving) return;
+        isMoving = true;
 
-    elem.addEventListener("mousemove",function(dets){
-    // cursor ka element ke top se distance de denge.
-    var diff = dets.clientY - elem.getBoundingClientRect().top;
+        requestAnimationFrame(() => {
+            const rect = elem.getBoundingClientRect();
+            const diff = event.clientY - rect.top;
 
-    diffrot = dets.clientX - rotate;
-    // jitna rotate ki value hogi image utna hi rotate karega par ham clamp laga denge 20 deg par taki isse jyada rotate na kare 
-    rotate = dets.clientX;
+            diffrot = event.clientX - rotate;
+            rotate = event.clientX;
 
-    gsap.to(elem.querySelector(".elem"),{
-        opacity:1,
-        ease: Power3,
-        top: diff,
-        left: dets.clientX,
-        rotate: gsap.utils.clamp(-20, 20, diffrot * 0.5),
+            // Update elemOverlay
+            gsap.to(elemOverlay, {
+                opacity: 1,
+                ease: Power2.easeOut,
+                top: diff,
+                left: event.clientX,
+                rotate: gsap.utils.clamp(-20, 20, diffrot * 0.5),
+            });
+
+            // Update elemTitle
+            gsap.to(elemTitle, {
+                opacity: 0.3,
+                ease: Power2.easeOut,
+            });
+
+            isMoving = false;
         });
-
-    gsap.to(elem.querySelector("h1"),{
-        opacity: .3,
-    });
-    
-
     });
 });
