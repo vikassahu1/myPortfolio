@@ -8,22 +8,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
-<body class="bg-black text-white font-sans relative mx-7">
+<body id="main" class="bg-black text-white font-sans relative mx-7">
 
         <nav class="relative mt-4 z-10 flex justify-between items-center h-[70px] px-10 md:px-15 ">
-            <div class="text-2xl font-bold font-mono">
+            <div class="text-5xl font-semibold font-mono ">
                 <!-- <img class="invert h-16" src="../images/letter-v.png" alt=""> -->
                  <h1>V.</h1>
             </div>
-            <div class="space-x-7 text-md rounded-full border-indigo-200 py-3 px-7 font-sans text-white hidden md:flex backdrop-blur-3xl bg-white/10">
-                <a href="#home" class="hover:text-indigo-200">Home</a>
-                <a href="#about" class="hover:text-indigo-200">About</a>
-                <a href="#projects" class="hover:text-indigo-200 ">Projects</a>
-                <a href="#skills" class="hover:text-indigo-200">Skills</a>
-                <a href="#contact" class="hover:text-indigo-200">Contact</a>
-            </div>
+            
+            <div class="relative text-md rounded-full border-indigo-200 py-3 px-5 font-sans text-white hidden md:flex backdrop-blur-3xl bg-white/10">
+                <!-- Navigation Links -->
+                <a href="#home" class="nav-link relative z-10 px-3">Home</a>
+                <a href="#about" class="nav-link relative z-10 px-3">About</a>
+                <a href="#projects" class="nav-link relative z-10 px-3">Projects</a>
+                <a href="#skills" class="nav-link relative z-10 px-3">Skills</a>
+                <a href="#contact" class="nav-link relative z-10 px-3">Contact</a>
+              
+                <!-- Moving Background -->
+                <!-- <span
+                  id="nav-indicator"
+                  class="absolute h-7 w-9 bg-cynthia rounded-full transition-all duration-300 ease-in-out -z-10"
+                  style="width: 0; left: 0;"
+                ></span> -->
+              </div>
+              
+              
+            
             <div class="space-x-4 hidden font-sans font-semibold md:flex h-[50%]">
                 <img class="invert" src="../images/linkedin_b.png" alt="">
                 <img class="invert"  src="../images/github_b.png" alt="">
@@ -56,7 +70,7 @@
         </div>
 
 <!-- About Section -->
-<div class="relative h-[70vh] bg-gray-400 rounded-lg shadow-lg p-8 md:flex items-center space-y-10 md:space-y-0 md:space-x-10">
+<div class="relative h-[100vh] bg-gray-400 rounded-lg shadow-lg p-8 md:flex items-center space-y-10 md:space-y-0 md:space-x-10">
     
     <!-- Image Section (Right) -->
     <div class="flex items-center justify-center md:w-1/2">
@@ -80,24 +94,24 @@
  
 <!-- Project Section -->
  <div class="project_section mt-20 mb-20">
-    <h1 class="text-center text-4xl  text-cynthia font-bold">Projects</h1>
+    <h1 class="text-2xl  text-cynthia">Projects</h1>
 
     <div class="projects">
-        <div class="MIRAAT flex border-b-[0.1px] border-t-[0.1px] border-cynthia mt-8 items-center justify-between hover:text-cynthia">
-            <h1 class="text-[clamp(105px,6vw,90px)] font-semibold font-pataka py-7 ">MIRAAT</h1>
+        <div class="MIRAAT flex border-b-[0.1px] border-t-[0.1px] border-cynthia mt-8 items-center justify-between text-cynthia hover:text-cynthia">
+            <h1 class="text-[clamp(105px,6vw,90px)] font-semibold font-pataka py-9 ">MIRAAT</h1>
             <h2 class="text-center">2024</h2>
         </div>
 
-        <div class="CLOTHSHOP flex border-b-[0.1px] border-cynthia items-center justify-between hover:text-cynthia">
-            <h1 class="text-[clamp(105Px,6vw,90px)] font-semibold font-pataka py-7 hover:text-cynthia">CLOTHSHOP</h1>
+        <div class="CLOTHSHOP flex border-b-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-cynthia">
+            <h1 class="text-[clamp(105Px,6vw,90px)] font-semibold font-pataka py-9 hover:text-cynthia">CLOTHSHOP</h1>
             <h2 class="text-center">2024</h2>
         </div>
-        <div class="RAGENGINE flex border-b-[0.1px] border-cynthia items-center justify-between hover:text-cynthia">
-            <h1 class="text-[clamp(105px,6vw,90px)] font-semibold font-pataka py-7 hover:text-cynthia">RAGENGINE</h1>
+        <div class="RAGENGINE flex border-b-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-gray-500">
+            <h1 class="text-[clamp(105px,6vw,90px)] font-semibold font-pataka py-9 hover:text-cynthia">RAGENGINE</h1>
             <h2 class="text-center">2024</h2>
         </div>
-        <div class="TEXTEDITS flex border-b-[0.1px] border-cynthia items-center justify-between hover:text-cynthia">
-            <h1 class="text-[clamp(105px,6vw,90px)] font-semibold font-pataka py-7 hover:text-cynthia">TEXTEDITS</h1>
+        <div class="TEXTEDITS flex border-b-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-cynthia">
+            <h1 class="text-[clamp(105px,6vw,90px)] font-semibold font-pataka py-9 hover:text-cynthia">TEXTEDITS</h1>
             <h2 class="text-center">2024</h2>
         </div>
     </div>
@@ -142,12 +156,110 @@
                 </div>
             </div>
         </div>
-</section>     
+</section>
 
 
+<section class="connect flex border-b-[0.1px] border-t-[0.1px] border-cynthia mt-8 items-center justify-between overflow-hidden">
+    <div class="flex animate-scroll whitespace-nowrap">
+      <!-- Original content -->
+      <h1 class="text-[clamp(70px,6vw,90px)] text-cynthia font-semibold font-pataka px-6 py-3 mr-8">
+        LETS CONNECT
+      </h1>
+      <h1 class="text-[clamp(70px,6vw,90px)] bg-cynthia text-black font-bold font-patakan px-6 py-3 mr-8">
+        LETS CONNECT
+      </h1>
+      <h1 class="text-[clamp(70px,6vw,90px)] text-cynthia font-semibold font-pataka px-6 py-3 mr-8">
+        LETS CONNECT
+      </h1>
+      <h1 class="text-[clamp(70px,6vw,90px)] bg-cynthia text-black font-bold font-patakan px-6 py-3 mr-8">
+        LETS CONNECT
+      </h1>
+  
+      <!-- Duplicate content for seamless scrolling -->
+      <h1 class="text-[clamp(70px,6vw,90px)] text-cynthia font-semibold font-pataka px-6 py-3 mr-8">
+        LETS CONNECT
+      </h1>
+      <h1 class="text-[clamp(70px,6vw,90px)] bg-cynthia text-black font-bold font-patakan px-6 py-3 mr-8">
+        LETS CONNECT
+      </h1>
+      <h1 class="text-[clamp(70px,6vw,90px)] text-cynthia font-semibold font-pataka px-6 py-3 mr-8">
+        LETS CONNECT
+      </h1>
+      <h1 class="text-[clamp(70px,6vw,90px)] bg-cynthia text-black font-bold font-patakan px-6 py-3 mr-8">
+        LETS CONNECT
+      </h1>
+    </div>
+  </section>
+  
 
 
-
+  <footer class=" text-gray-300 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- About Section -->
+        <div>
+          <h2 class="text-xl font-semibold text-cyan-500 mb-4">About Me</h2>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Hi, I’m Vikas, a passionate web developer and AI enthusiast. I enjoy crafting clean and functional designs with modern technologies.
+          </p>
+          <div class="mt-4">
+            <a href="#contact" class="text-cyan-500 hover:text-cyan-300 text-sm transition">
+              Let’s Connect →
+            </a>
+          </div>
+        </div>
+        
+        <!-- Links Section -->
+        <div>
+          <h2 class="text-xl font-semibold text-cyan-500 mb-4">Quick Links</h2>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a href="#projects" class="hover:text-cyan-300 transition">Projects</a>
+            </li>
+            <li>
+              <a href="#skills" class="hover:text-cyan-300 transition">Skills</a>
+            </li>
+            <li>
+              <a href="#experience" class="hover:text-cyan-300 transition">Experience</a>
+            </li>
+            <li>
+              <a href="#contact" class="hover:text-cyan-300 transition">Contact</a>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Social Media Links -->
+<!-- Social Media Links -->
+<div>
+    <h2 class="text-xl font-semibold text-cyan-500 mb-4">Stay Connected</h2>
+    <div class="flex flex-col space-y-2 text-sm">
+      <a href="https://github.com/yourprofile" target="_blank" class="flex items-center text-gray-300 hover:text-cyan-300 group transition">
+        <span>GitHub</span>
+        <span class="ml-2 transform translate-x-0 group-hover:translate-x-2 transition-transform">→</span>
+      </a>
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" class="flex items-center text-gray-300 hover:text-cyan-300 group transition">
+        <span>LinkedIn</span>
+        <span class="ml-2 transform translate-x-0 group-hover:translate-x-2 transition-transform">→</span>
+      </a>
+      <a href="mailto:yourmail@example.com" class="flex items-center text-gray-300 hover:text-cyan-300 group transition">
+        <span>Email</span>
+        <span class="ml-2 transform translate-x-0 group-hover:translate-x-2 transition-transform">→</span>
+      </a>
+    </div>
+  </div>
+  
+        
+      </div>
+      <div class="mt-10 text-center border-t border-gray-700 pt-4 text-sm">
+        <p class="text-gray-500">© 2024 Vikas. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="module" src="../static/script.js"></script>
 </body>
 </html>
