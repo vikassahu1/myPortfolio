@@ -44,7 +44,7 @@ const topLight = new THREE.DirectionalLight(0xffffff, 0.4);
 topLight.position.set(5, 5, 5);
 scene.add(topLight);
 
-const cursorLight = new THREE.PointLight(0xffffff, 0.2, 3);
+const cursorLight = new THREE.PointLight(0xffffff, 0.1, 3);
 cursorLight.position.set(0, 0, 5);
 cursorLight.intensity = 7;
 scene.add(cursorLight);
@@ -120,7 +120,7 @@ async function createIconBalls(containerSelector, iconsPath, imgfile) {
 
     <!-- Inner highlight and texture layer -->
     <div class="absolute inset-0 rounded-full 
-        bg-gradient-to-t from-gray-200/80 to-gray-300 
+        bg-gradient-to-t from-gray-600/80 to-gray-300 
         backdrop-blur-sm 
         border-[1px] border-gray-300">
     </div>
@@ -147,6 +147,10 @@ async function createIconBalls(containerSelector, iconsPath, imgfile) {
         group-hover:scale-110 group-hover:translate-z-2 
         drop-shadow-[0_10px_8px_rgba(0,0,0,0.3)]"
     >
+</div>
+<div class="absolute -bottom-6 left-8 
+     text-sm text-cynthia px-5">
+    ${icon.split('.')[0]} <!-- Display file name without extension -->
 </div>
         `;
         container.appendChild(ballElement);
@@ -284,47 +288,72 @@ document.querySelectorAll(".project").forEach(function (elem) {
     const elemOverlay = elem.querySelector(".elem");
     const elemTitle = elem.querySelector("h1");
 
-    // Mouse leave event
-    elem.addEventListener("mouseleave", function () {
+    // Mouse enter event to show the overlay immediately when cursor enters
+    elem.addEventListener("mouseenter", function () {
         gsap.to(elemOverlay, {
-            opacity: 0,
+            opacity: 1, // Make overlay visible when the mouse enters the div
             ease: Power2.easeOut,
         });
 
         gsap.to(elemTitle, {
-            opacity: 1,
+            opacity: 0.3, // Make the title less visible when the overlay is shown
             ease: Power2.easeOut,
         });
     });
 
-    // Mouse move event with throttling
+    // Mouse leave event to hide the overlay when the mouse leaves the div
+    elem.addEventListener("mouseleave", function () {
+        gsap.to(elemOverlay, {
+            opacity: 0, // Hide overlay when the mouse leaves
+            ease: Power2.easeOut,
+        });
+
+        gsap.to(elemTitle, {
+            opacity: 1, // Make the title fully visible again
+            ease: Power2.easeOut,
+        });
+    });
+
+    // Mouse move event for dynamic hover effect, but not for showing the card
     elem.addEventListener("mousemove", function (event) {
-        if (isMoving) return;
-        isMoving = true;
+        const rect = elem.getBoundingClientRect();
+        const diff = event.clientY - rect.top;
 
-        requestAnimationFrame(() => {
-            const rect = elem.getBoundingClientRect();
-            const diff = event.clientY - rect.top;
+        diffrot = event.clientX - rotate;
+        rotate = event.clientX;
 
-            diffrot = event.clientX - rotate;
-            rotate = event.clientX;
-
-            // Update elemOverlay
-            gsap.to(elemOverlay, {
-                opacity: 1,
-                ease: Power2.easeOut,
-                top: diff,
-                left: event.clientX,
-                rotate: gsap.utils.clamp(-20, 20, diffrot * 0.5),
-            });
-
-            // Update elemTitle
-            gsap.to(elemTitle, {
-                opacity: 0.3,
-                ease: Power2.easeOut,
-            });
-
-            isMoving = false;
+        // Update elemOverlay position and rotation dynamically as mouse moves
+        gsap.to(elemOverlay, {
+            top: diff,
+            left: event.clientX,
+            rotate: gsap.utils.clamp(-20, 20, diffrot * 0.5),
+            ease: Power2.easeOut,
         });
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+// Function to update the time
+function updateTime() {
+    const timing = document.getElementById('time');
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0'); // Ensures 2-digit format
+    const minutes = String(now.getMinutes()).padStart(2, '0'); // Ensures 2-digit format
+    const formattedTime = `${hours}:${minutes}`;
+    timing.innerText = formattedTime;
+}
+
+// Call the function immediately to set the time
+updateTime();
+
+// Set an interval to update the time every 60 seconds
+setInterval(updateTime, 60000); // 60000ms = 1 minute

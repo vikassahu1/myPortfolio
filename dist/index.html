@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vikas</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <link href="../static/output.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +17,7 @@
         /* Hide the default cursor */
         body {
             cursor: none;
+            overflow-x: hidden;
         }
 
         /* Cursor Follower Styling */
@@ -36,6 +38,12 @@
 </head>
 
 <body id="main" class="bg-black text-white font-sans relative mx-7">
+
+
+  
+
+
+
         <!-- Cursor Follower -->
     <div id="cursor" class="cursor-follower fixed top-0 left-0 w-5 h-5 bg-white rounded-full shadow-[10px_10px_20px_rgba(255,255,255,0.4)] pointer-events-none"></div>
 
@@ -48,10 +56,10 @@
             
             <div class="relative text-md rounded-full border-indigo-200 py-3 px-5 font-sans text-white hidden md:flex backdrop-blur-3xl bg-white/10">
                 <!-- Navigation Links -->
-                <a href="#home" class="nav-link relative z-10 px-3">Home</a>
+                <a href="#home" class="nav-link relative z-10 px-3">Home <span class="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span></a>
                 <a href="#about" class="nav-link relative z-10 px-3">About</a>
-                <a href="#projects" class="nav-link relative z-10 px-3">Projects</a>
-                <a href="#skills" class="nav-link relative z-10 px-3">Skills</a>
+                <a href="#project_section" class="nav-link relative z-10 px-3">Projects</a>
+                <a href="#skill_section" class="nav-link relative z-10 px-3">Skills</a>
                 <a href="#contact" class="nav-link relative z-10 px-3">Contact</a>
               
                 <!-- Moving Background -->
@@ -80,18 +88,37 @@
 
         <!-- Hero Section  -->
         <div class="hero_section h-[calc(100vh-80px)] flex">
-            <div class="hero_left w-2/3 h-full flex justify-center items-start flex-col pl-24 z-40 pr-6 pb-36 text-white">
+            <div class="hero_left w-2/3 h-full flex items-start flex-col pl-24 z-40 pr-6 pb-7 text-white justify-between">
                 <!-- Name Section -->
+                <div class="name-top mt-24">
                 <h3 class="text-lg  text-white font-light tracking-wide">Hi! I’m</h3>
                 <h1 class="text-[clamp(135px,6vw,90px)] font-semibold font-pataka text-cynthia leading-tight bg-gradient-to-r from-whitebg-clip-text">
                     VIKAS SAHU
                 </h1>
                 
                 <!-- Description Section -->
-                <p class="text-lg text-white mt-4 leading-relaxed tracking-wide">
-                    A <span class="font-medium text-white">Software Developer</span> with a passion for creating innovative solutions. 
+                <p class="text-lg text-white mt-4 font-light leading-relaxed tracking-wide">
+                    A <span class="font-normal text-white">Software Developer</span> with a passion for creating innovative solutions. 
                     Currently exploring AI and Data Science</span>.
                 </p>
+                </div>
+
+                <!-- Social Media Icons -->
+                <div class="name-bottom flex flex-row justify-between text-white text-xl font-light relative w-[100%]">
+
+                <a href="../static/latest_cv.pdf" download="latest_cv.pdf" target="_blank" class="no-underline">
+                  <button class=" relative group ">
+                    <i class="ri-file-download-line"></i>
+                    Download Resume
+                </button>
+                </a>
+                <div><i class="ri-map-pin-line"></i> Mumbai, India</div>
+
+                <div><i class="ri-time-line"></i> <span id="time"></span> (IST)</div>
+                </div>
+                
+                
+
             </div>
             
             
@@ -103,10 +130,10 @@
         </div>
 
 <!-- About Section -->
-<div id="about" class="relative h-[100vh] bg-gray-400 rounded-lg shadow-lg p-8 md:flex items-center space-y-10 md:space-y-0 md:space-x-10 overflow-hidden">
+<div id="about" class="relative h-[100vh] bg-gray-500 rounded-lg shadow-lg p-8 md:flex items-center space-y-10 md:space-y-0 md:space-x-10 overflow-hidden">
 
     <!-- Image Section (Right) -->
-    <div class="flex items-center justify-center md:w-1/2">
+    <div class="flex items-center justify-center w-[40%]">
         <div class="relative">
             <div class="absolute inset-0 w-[330px] h-[330px] rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-pulse"></div>
             <img src="../images/vikas.png" alt="Hero Image" class="h-[300px] w-[300px] object-cover rounded-full border-[5px] border-white shadow-xl relative">
@@ -114,10 +141,16 @@
     </div>
 
     <!-- Text Section (Left) -->
-    <div id="about-text" class="relative text-center md:w-1/2">
+    <div id="about-text" class="relative text-center w-[60%]">
         <h1 class="text-4xl font-bold text-gray-800 mb-6">About</h1>
-        <p class="text-lg font-light leading-relaxed text-gray-700 break-words whitespace-normal">
-            Miraat is a mental health platform dedicated to helping individuals understand, manage, and improve their emotional well-being. With personalized assessments, AI-powered chatbot support, and valuable resources, Miraat provides a safe space for users to track their progress, find expert guidance, and access mental health tools to enhance their overall well-being.
+        <p class="text-xl  font-light leading-relaxed text-black break-words whitespace-normal">
+            Hello! I'm Vikas Kumar Sahu, a passionate Web Developer and AI Enthusiast currently pursuing a B.Tech in Computer Science and Engineering at IIITDM Kurnool, Andhra Pradesh. I have a strong foundation in web development and a deep interest in Artificial Intelligence, particularly in Machine Learning (ML), Deep Learning (DL), and Generative AI (GenAI).
+
+I have developed my problem-solving skills and refined my understanding of Data Structures and Algorithms over the years, which are core strengths of mine. I enjoy tackling complex challenges and continuously learning to improve my skills.
+
+With a goal to work alongside brilliant minds, I aim to contribute to society through innovative technology. My passion is not only in developing cutting-edge solutions but also in making a positive impact on the world around me.
+
+Outside of work, I enjoy exploring various philosophies from different cultures, which broadens my perspective and fuels my creativity. I also stay fit through regular workouts, which helps me maintain a balanced and focused mindset. I look forward to collaborating with talented individuals who share my passion for growth and making a difference.
         </p>
     </div>
 
@@ -127,18 +160,15 @@
 
  
 <!-- Project Section -->
- <div id="project_section" class="project_section mt-20 mb-20">
+ <div id="project_section" class="project_section mt-20 mb-10">
     <h1 class="text-2xl  text-cynthia">Projects</h1>
-
     <div id = "projects" class="projects">
-
-
 
         <a href="https://github.com/vikassahu1/Miraat" target="_blank" class="decoration-0">
         <div class="MIRAAT relative flex border-b-[0.1px] border-t-[0.1px] border-cynthia mt-8 items-center justify-between text-cynthia hover:text-cynthia project">
 
             <!-- Hovering Card  -->
-            <div class="absolute elem h-[150%] w-[50%] bg-red-500 z-20 translate-x-[-50%] translate-y-[-40%] opacity-0 pointer-events-none flex shadow-xl rounded-lg overflow-hidden">
+            <div class="absolute elem h-[200%] w-[60%] bg-red-500 z-20 translate-x-[-50%] translate-y-[-40%] opacity-0 pointer-events-none flex shadow-xl rounded-lg overflow-hidden">
                 <!-- Left Section: Image -->
                 <div class="elem-left relative w-[50%] bg-gray-800 flex items-center justify-center">
                     <img src="../images/projects/miraat.jpg" alt="Project Image" class="object-cover h-full w-full rounded-l-lg">
@@ -148,16 +178,22 @@
                 <div class="elem-right relative w-[50%] bg-white p-6 flex flex-col justify-center">
                     <h1 class="text-2xl font-bold text-gray-800 mb-2">MIRAAT</h1>
                     <h3 class="text-sm text-gray-600 mb-4 leading-relaxed">
-                        AI-powered mental health assessment and improvement application.
+                      MIRAAT (Arabic word which means "Mirror") is an AI-powered mental health assessment application designed to evaluate mental health using professional tests. It categorizes disorders using zero-shot classification techniques and offers personalized solutions to users using Artificial Intelligence. Additional features, such as a community section, aim to foster better mental health through shared support and interaction.
                     </h3>
                     <div class="skills_used">
                         <h4 class="text-md font-semibold text-gray-700 mb-2">Skills Used:</h4>
                         <ul class="flex flex-wrap gap-2">
-                            <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">AI</li>
-                            <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Chatbot</li>
-                            <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Web Development</li>
-                            <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Machine Learning</li>
-                            <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">UX Design</li>
+                            <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">HTML</li>
+                            <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">TailwindCSS</li>
+                            <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Javascript</li>
+                            <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Python</li>
+                            <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">PostgreSQL</li>
+                            <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">FastAPI</li>
+                            <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Jinja2</li>
+                            <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Firebase</li>
+                            <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Hugging Face</li>
+                            <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Tensorflow</li>
+                        
                         </ul>
                     </div>
                 </div> 
@@ -165,41 +201,83 @@
             
             
 
-            <h1 class="text-[clamp(105px,6vw,90px)] font-semibold font-pataka py-9 hover:text-cynthia">MIRAAT</h1>
+            <h1 class="text-[clamp(105px,6vw,90px)] font-semibold font-pataka py-9 ">MIRAAT</h1>
             <h2 class="text-center">2024</h2>
         </div>
         </a>
 
 
+        <a href="https://github.com/vikassahu1/student_performance_analyser" target="_blank" class="decoration-0">
+          <div class="MIRAAT relative flex border-b-[0.1px] border-t-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-cynthia project">
+  
+              <!-- Hovering Card  -->
+              <div class="absolute elem h-[200%] w-[60%] bg-red-500 z-20 translate-x-[-50%] translate-y-[-40%] opacity-0 pointer-events-none flex shadow-xl rounded-lg overflow-hidden">
+                  <!-- Left Section: Image -->
+                  <div class="elem-left relative w-[50%] bg-gray-800 flex items-center justify-center">
+                      <img src="../images/projects/spe.jpg" alt="Project Image" class="object-cover h-full w-full rounded-l-lg">
+                  </div>
+              
+                  <!-- Right Section: Content -->
+                  <div class="elem-right relative w-[50%] bg-white p-6 flex flex-col justify-center">
+                      <h1 class="text-2xl font-bold text-gray-800 mb-2">PERFORMANCE ANALYZER</h1>
+                      <h3 class="text-sm text-gray-600 mb-4 leading-relaxed">
+                        Student Performance Analyzer is an end-to-end machine learning project designed to analyze and predict student performance using advanced industry-level techniques. It involves comprehensive exploratory data analysis (EDA), model training, and pipeline implementation. The project leverages algorithms such as Random Forest, AdaBoost, XGBoost, CatBoost, and others for accurate predictions and performance evaluation. Key features include the use of metrics like R² score, mean squared error, and mean absolute error for model validation. The application evaluates student performance based on features like gender, race/ethnicity, parental education level, lunch type, and test scores, providing actionable insights for improvement.
+                      </h3>
+                      <div class="skills_used">
+                          <h4 class="text-md font-semibold text-gray-700 mb-2">Skills Used:</h4>
+                          <ul class="flex flex-wrap gap-2">
+                              <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">HTML</li>
+                              <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">CSS</li>
+                              <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Javascript</li>
+                              <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Python</li>
+                              <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Bootstrap</li>
+                              <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Flask</li>
+                              <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Jinja2</li>
+                              <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Scikit-learn</li>
+                              <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Numpy</li>
+                              <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Pandas</li>
+                          
+                          </ul>
+                      </div>
+                  </div> 
+              </div>
+              
+              
+  
+              <h1 class="text-[clamp(105px,6vw,90px)] font-semibold font-pataka py-9 hover:text-cynthia">PERFOMANCE ANALYZER</h1>
+              <h2 class="text-center">2024</h2>
+          </div>
+          </a>
+
+
 
         <a href="https://github.com/vikassahu1/ClothShop" target="_blank" class="decoration-0">
         <div class="CLOTHSHOP  flex border-b-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-cynthia relative project">
-                        <!-- Hovering Card  -->
-                        <div class="absolute elem h-[140%] w-[50%] bg-red-500 z-20 translate-x-[-50%] translate-y-[-40%] opacity-0 pointer-events-none flex shadow-xl rounded-lg overflow-hidden">
-                            <!-- Left Section: Image -->
-                            <div class="elem-left relative w-[50%] bg-gray-800 flex items-center justify-center">
-                                <img src="../images/projects/clothshop.jpg" alt="Project Image" class="object-cover h-full w-full rounded-l-lg">
-                            </div>
-                        
-                            <!-- Right Section: Content -->
-                            <div class="elem-right relative w-[50%] bg-white p-6 flex flex-col justify-center">
-                                <h1 class="text-2xl font-bold text-gray-800 mb-2">CLOTHSHOP</h1>
-                                <h3 class="text-sm text-gray-600 mb-4 leading-relaxed">
-                                    AI-powered mental health assessment and improvement application.
-                                </h3>
-                                <div class="skills_used">
-                                    <h4 class="text-md font-semibold text-gray-700 mb-2">Skills Used:</h4>
-                                    <ul class="flex flex-wrap gap-2">
-                                        <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">AI</li>
-                                        <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Chatbot</li>
-                                        <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Web Development</li>
-                                        <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Machine Learning</li>
-                                        <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">UX Design</li>
-                                    </ul>
-                                </div>
-                            </div> 
-                        </div>
-
+                <!-- Hovering Card  -->
+                <div class="absolute elem h-[200%] w-[60%] bg-red-500 z-20 translate-x-[-50%] translate-y-[-40%] opacity-0 pointer-events-none flex shadow-xl rounded-lg overflow-hidden">
+                  <!-- Left Section: Image -->
+                  <div class="elem-left relative w-[50%] bg-gray-800 flex items-center justify-center">
+                      <img src="../images/projects/clothshop.jpg" alt="Project Image" class="object-cover h-full w-full rounded-l-lg">
+                  </div>
+              
+                  <!-- Right Section: Content -->
+                  <div class="elem-right relative w-[50%] bg-white p-6 flex flex-col justify-center">
+                      <h1 class="text-2xl font-bold text-gray-800 mb-2">CLOTHSHOP</h1>
+                      <h3 class="text-sm text-gray-600 mb-4 leading-relaxed">
+                        ClothShop is a comprehensive management system designed to streamline operations in a clothing store. It efficiently manages daily profit and loss, employee salaries, cash and online earnings, and inventory. By automating these tasks, ClothShop reduces manual errors, enhances operational efficiency, and provides insights to improve profitability and decision-making. Its user-friendly interface ensures easy adoption and smooth functionality for all users.
+                      </h3>
+                      <div class="skills_used">
+                          <h4 class="text-md font-semibold text-gray-700 mb-2">Skills Used:</h4>
+                          <ul class="flex flex-wrap gap-2">
+                              <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Python</li>
+                              <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">JSON</li>
+                              <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">OOP</li>
+                              <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">File Handling</li
+                          </ul>
+                      </div>
+                  </div> 
+              </div>
+              
             <h1 class="text-[clamp(105Px,6vw,90px)] font-semibold font-pataka py-9 ">CLOTHSHOP</h1>
             <h2 class="text-center">2024</h2>
         </div>
@@ -208,104 +286,111 @@
 
         <a href="https://github.com/vikassahu1/QueryEngineRAG" target="_blank" class="decoration-0">
         <div class="RAGENGINE flex border-b-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-gray-500 relative project">
-                        <!-- Hovering Card  -->
-                        <div class="absolute elem h-[140%] w-[50%] bg-red-500 z-20 translate-x-[-50%] translate-y-[-40%] opacity-0 pointer-events-none flex shadow-xl rounded-lg overflow-hidden">
-                            <!-- Left Section: Image -->
-                            <div class="elem-left relative w-[50%] bg-gray-800 flex items-center justify-center">
-                                <img src="../images/projects/ragengine.jpg" alt="Project Image" class="object-cover h-full w-full rounded-l-lg">
-                            </div>
-                        
-                            <!-- Right Section: Content -->
-                            <div class="elem-right relative w-[50%] bg-white p-6 flex flex-col justify-center">
-                                <h1 class="text-2xl font-bold text-gray-800 mb-2">RAGENGINE</h1>
-                                <h3 class="text-sm text-gray-600 mb-4 leading-relaxed">
-                                    AI-powered mental health assessment and improvement application.
-                                </h3>
-                                <div class="skills_used">
-                                    <h4 class="text-md font-semibold text-gray-700 mb-2">Skills Used:</h4>
-                                    <ul class="flex flex-wrap gap-2">
-                                        <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">AI</li>
-                                        <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Chatbot</li>
-                                        <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Web Development</li>
-                                        <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Machine Learning</li>
-                                        <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">UX Design</li>
-                                    </ul>
-                                </div>
-                            </div> 
-                        </div>            
-
-
+            <!-- Hovering Card  -->
+            <div class="absolute elem h-[200%] w-[60%] bg-red-500 z-20 translate-x-[-50%] translate-y-[-40%] opacity-0 pointer-events-none flex shadow-xl rounded-lg overflow-hidden">
+              <!-- Left Section: Image -->
+              <div class="elem-left relative w-[50%] bg-gray-800 flex items-center justify-center">
+                  <img src="../images/projects/ragengine.jpg" alt="Project Image" class="object-cover h-full w-full rounded-l-lg">
+              </div>
+          
+              <!-- Right Section: Content -->
+              <div class="elem-right relative w-[50%] bg-white p-6 flex flex-col justify-center">
+                  <h1 class="text-2xl font-bold text-gray-800 mb-2">RAGENGINE</h1>
+                  <h3 class="text-sm text-gray-600 mb-4 leading-relaxed">
+                    RAGENGINE is a Retrieval-Augmented Generation (RAG) application that answers questions based on uploaded documents. Users can upload PDF or DOCX files, ask context-specific questions, and receive accurate answers derived from the documents. The system employs efficient data retrieval techniques and features a user-friendly interface built with Streamlit, ensuring a seamless and intuitive experience. It streamlines knowledge extraction for various use cases, making document analysis faster and more efficient.
+                  </h3>
+                  <div class="skills_used">
+                      <h4 class="text-md font-semibold text-gray-700 mb-2">Skills Used:</h4>
+                      <ul class="flex flex-wrap gap-2">
+                          <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Python</li>
+                          <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">LlamaIndex</li>
+                          <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Streamlit</li>
+                          <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">RAG</li>
+                          <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Vector Embeddings</li>
+                          <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Gemini</li>
+                      </ul>
+                  </div>
+              </div> 
+          </div>           
             <h1 class="text-[clamp(105px,6vw,90px)] font-semibold font-pataka py-9 ">RAGENGINE</h1>
             <h2 class="text-center">2024</h2>
         </div>
     </a>
 
 
-    <a href="https://github.com/vikassahu1/TextEdits" target="_blank" class="decoration-0">
-        <div class="TEXTEDITS flex border-b-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-cynthia relative project">
+      <a href="https://github.com/vikassahu1/TextEdits" target="_blank" class="decoration-0">
+          <div class="TEXTEDITS flex border-b-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-cynthia relative project">
 
-                        <!-- Hovering Card  -->
-                        <div class="absolute elem h-[140%] w-[50%] bg-red-500 z-20 translate-x-[-50%] translate-y-[-40%] opacity-0 pointer-events-none flex shadow-xl rounded-lg overflow-hidden">
-                            <!-- Left Section: Image -->
-                            <div class="elem-left relative w-[50%] bg-gray-800 flex items-center justify-center">
-                                <img src="../images/projects/textedits.jpg" alt="Project Image" class="object-cover h-full w-full rounded-l-lg">
-                            </div>
-                        
-                            <!-- Right Section: Content -->
-                            <div class="elem-right relative w-[50%] bg-white p-6 flex flex-col justify-center">
-                                <h1 class="text-2xl font-bold text-gray-800 mb-2">TEXTEDITS</h1>
-                                <h3 class="text-sm text-gray-600 mb-4 leading-relaxed">
-                                    AI-powered mental health assessment and improvement application.
-                                </h3>
-                                <div class="skills_used">
-                                    <h4 class="text-md font-semibold text-gray-700 mb-2">Skills Used:</h4>
-                                    <ul class="flex flex-wrap gap-2">
-                                        <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">AI</li>
-                                        <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Chatbot</li>
-                                        <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Web Development</li>
-                                        <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Machine Learning</li>
-                                        <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">UX Design</li>
-                                    </ul>
-                                </div>
-                            </div> 
-                        </div>
+                      <!-- Hovering Card  -->
+                    <div class="absolute elem h-[200%] w-[60%] bg-red-500 z-20 translate-x-[-50%] translate-y-[-40%] opacity-0 pointer-events-none flex shadow-xl rounded-lg overflow-hidden">
+                      <!-- Left Section: Image -->
+                      <div class="elem-left relative w-[50%] bg-gray-800 flex items-center justify-center">
+                          <img src="../images/projects/textedits.jpg" alt="Project Image" class="object-cover h-full w-full rounded-l-lg">
+                      </div>
+                  
+                      <!-- Right Section: Content -->
+                      <div class="elem-right relative w-[50%] bg-white p-6 flex flex-col justify-center">
+                          <h1 class="text-2xl font-bold text-gray-800 mb-2">TEXTEDITS</h1>
+                          <h3 class="text-sm text-gray-600 mb-4 leading-relaxed">
+                            TextEdits is a text editing website built using the REACT framework to simplify editing long texts. It offers various functions, including converting text to lowercase, uppercase, and title case, removing extra spaces, copying text, clearing text, previewing content, counting words and characters, and estimating reading time. Additionally, it features light and dark modes, providing users with a customizable and comfortable editing experience. Its intuitive interface makes text editing efficient and user-friendly.
+                          </h3>
+                          <div class="skills_used">
+                              <h4 class="text-md font-semibold text-gray-700 mb-2">Skills Used:</h4>
+                              <ul class="flex flex-wrap gap-2">
+                                  <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">HTML</li>
+                                  <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Vanilla CSS</li>
+                                  <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Javasript</li>
+                                  <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">ReactJS</li>
+                                  <li class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Bootstrap</li>
+                              </ul>
+                          </div>
+                      </div> 
+                  </div>   
 
 
-            <h1 class="text-[clamp(105px,6vw,90px)] font-semibold font-pataka py-9 ">TEXTEDITS</h1>
-            <h2 class="text-center">2024</h2>
-        </div>
-    </a>
+              <h1 class="text-[clamp(105px,6vw,90px)] font-semibold font-pataka py-9 ">TEXTEDITS</h1>
+              <h2 class="text-center">2024</h2>
+          </div>
+      </a>
 
 
     </div>
+    
+    <a href="https://github.com/vikassahu1?tab=repositories" target="_blank" class="no-underline">
+    <button class="text-white text-lg my-10 py-1 rounded-full relative group transition duration-300 ">
+      See All Projects 
+      <i class="ri-arrow-right-up-line"></i>
+      <span class="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+  </button>
+    </a>
 
  </div>
 
 
 
-    <section class="skill_section h- w-full h-[100vh] py-3 my-3">
+    <section class="skill_section w-full h-[100vh] py-3 my-3">
         <h1 class="text-center text-4xl text-cynthia font-bold mb-12">Skills</h1>
         <div class="h-[80vh] grid grid-cols-10 grid-rows-10 gap-1">
             <div class="col-span-6 row-span-7 bg-black rounded-ss-lg border-2 border-cynthia">
-                <h2 class="text-white h-6 font-pataka font-semibold text-center">Web Development</h2>
-                <div id="web_icon" class="web_icon px-7 py-3">
+                <h2 class="text-white h-6 font-pataka text-center">Web Development</h2>
+                <div id="web_icon" class="web_icon px-7 py-2">
 
                 </div>
             </div>
             <div class="col-span-4 row-span-7 bg-black rounded-se-lg border-2 border-cynthia">
-                <h2 class="text-white h-6 font-pataka font-semibold text-center">AI and Data Science</h2>
+                <h2 class="text-white h-6 font-pataka text-center">AI and Data Science</h2>
                 <div id="ai_icon" class="ai_icon px-7 py-14">
 
                 </div>
             </div>
             <div class="col-span-4 row-span-3 bg-black rounded-es-lg border-2 border-cynthia">
-                <h2 class="text-white  h-6 font-pataka font-semibold text-center">Lanuguages</h2>
+                <h2 class="text-white  h-6 font-pataka text-center">Lanuguages</h2>
                 <div id="lang_icon" class="lang_icon px-7 py-5">
 
                 </div>
             </div>
             <div class="col-span-6 row-span-3 bg-black border-2  rounded-ee-lg border-cynthia">
-                <h2 class="text-white h-6 font-pataka font-semibold text-center ">Other Tools</h2>
+                <h2 class="text-white h-6 font-pataka text-center ">Other Tools</h2>
                 <div id="other_icon" class="other_icon px-7 py-5">
                     
                 </div>
@@ -347,67 +432,27 @@
   </section>
   
 
-
-  <footer class=" text-gray-300 py-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
-        <!-- About Section -->
-        <div>
-          <h2 class="text-xl font-semibold text-cyan-500 mb-4">About Me</h2>
-          <p class="text-gray-400 text-sm leading-relaxed">
-            Hi, I’m Vikas, a passionate web developer and AI enthusiast. I enjoy crafting clean and functional designs with modern technologies.
-          </p>
-          <div class="mt-4">
-            <a href="#contact" class="text-cyan-500 hover:text-cyan-300 text-sm transition">
-              Let’s Connect →
-            </a>
-          </div>
-        </div>
-        
-        <!-- Links Section -->
-        <div>
-          <h2 class="text-xl font-semibold text-cyan-500 mb-4">Quick Links</h2>
-          <ul class="space-y-2 text-sm">
-            <li>
-              <a href="#projects" class="hover:text-cyan-300 transition">Projects</a>
-            </li>
-            <li>
-              <a href="#skills" class="hover:text-cyan-300 transition">Skills</a>
-            </li>
-            <li>
-              <a href="#experience" class="hover:text-cyan-300 transition">Experience</a>
-            </li>
-            <li>
-              <a href="#contact" class="hover:text-cyan-300 transition">Contact</a>
-            </li>
-          </ul>
-        </div>
-        
-        <!-- Social Media Links -->
-<!-- Social Media Links -->
-<div>
-    <h2 class="text-xl font-semibold text-cyan-500 mb-4">Stay Connected</h2>
-    <div class="flex flex-col space-y-2 text-sm">
-      <a href="https://github.com/yourprofile" target="_blank" class="flex items-center text-gray-300 hover:text-cyan-300 group transition">
-        <span>GitHub</span>
-        <span class="ml-2 transform translate-x-0 group-hover:translate-x-2 transition-transform">→</span>
-      </a>
-      <a href="https://linkedin.com/in/yourprofile" target="_blank" class="flex items-center text-gray-300 hover:text-cyan-300 group transition">
-        <span>LinkedIn</span>
-        <span class="ml-2 transform translate-x-0 group-hover:translate-x-2 transition-transform">→</span>
-      </a>
-      <a href="mailto:yourmail@example.com" class="flex items-center text-gray-300 hover:text-cyan-300 group transition">
-        <span>Email</span>
-        <span class="ml-2 transform translate-x-0 group-hover:translate-x-2 transition-transform">→</span>
-      </a>
-    </div>
-  </div>
-  
-        
+  <footer class="bg-black text-white text-lg font-light  py-8">
+    <div class="container flex flex-row justify-between items-center text-center md:text-left">
+      <!-- Left Section -->
+      <div class="space-y-2">
+        <h2 class="text-2xl font-semibold">Get In Touch</h2>
+        <p>2003vikas0906@gmail.com</p>
       </div>
-      <div class="mt-10 text-center border-t border-gray-700 pt-4 text-sm">
-        <p class="text-gray-500">© 2024 Vikas. All rights reserved.</p>
+  
+      <!-- Middle Section -->
+      <div class="space-y-1">
+        <p>© 2024 Vikas Sahu</p>
+        <p>Built with ❤️</p>
+      </div>
+  
+      <!-- Right Section -->
+      <div class="space-y-2">
+        <ul class="space-y-2">
+          <li><a href="https://www.linkedin.com/in/vikassahuofficial/" class="hover:underline">LinkedIn ↗</a></li>
+          <li><a href="https://github.com/vikassahu1" class="hover:underline">GitHub ↗</a></li>
+        </ul>
+        <p>Mumbai, India</p>
       </div>
     </div>
   </footer>
