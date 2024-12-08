@@ -1,3 +1,12 @@
+window.addEventListener('load', () => {
+    // Hide the loader
+    document.getElementById('loader').classList.add('hidden');
+    // Show the main content
+    document.getElementById('main_content').classList.remove('hidden');
+});
+
+
+
 import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
@@ -44,7 +53,7 @@ const topLight = new THREE.DirectionalLight(0xffffff, 0.4);
 topLight.position.set(5, 5, 5);
 scene.add(topLight);
 
-const cursorLight = new THREE.PointLight(0xffffff, 0.1, 3);
+const cursorLight = new THREE.PointLight(0xffffff, 0.4, 3);
 cursorLight.position.set(0, 0, 5);
 cursorLight.intensity = 7;
 scene.add(cursorLight);
@@ -333,15 +342,6 @@ document.querySelectorAll(".project").forEach(function (elem) {
 });
 
 
-
-
-
-
-
-
-
-
-
 // Function to update the time
 function updateTime() {
     const timing = document.getElementById('time');
@@ -357,3 +357,40 @@ updateTime();
 
 // Set an interval to update the time every 60 seconds
 setInterval(updateTime, 60000); // 60000ms = 1 minute
+
+
+
+//<------------------------------Transition animations ---------------------------------->
+ function firstPageAnimation(){
+    var t1 = gsap.timeline();
+
+    t1.from("#nav", {
+        y: -10,
+        opacity: 0,
+        duration: 1.5,
+        ease: Expo.easeInOut,
+    })
+    
+    .to("#lg", {
+        y: 0,
+        ease: Expo.easeInOut,
+        duration: 1.5,
+        opacity: 1, // Opacity should not exceed 1
+        delay: -1, // Overlaps slightly with the previous animation
+        stagger: 0.2,
+    })
+    
+    .from("#herofooter", {
+        y: 10,
+        opacity: 0,
+        duration: 1.5,
+        delay: 0, // Remove the excessive negative delay
+        ease: Expo.easeInOut,
+    });
+    
+
+
+ }
+
+ firstPageAnimation();
+

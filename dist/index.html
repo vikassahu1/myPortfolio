@@ -39,16 +39,26 @@
 
 <body id="main" class="bg-black text-white font-sans relative mx-7">
 
+      
+    <!-- Loader Section -->
+    <div id="loader" class="fixed inset-0 bg-black flex items-center justify-center z-50">
+      <div class="flex flex-col items-center gap-4">
+          <!-- Spinner -->
+          <div class="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+          <!-- Loading Text -->
+          <p class="text-gray-200 text-lg font-medium">Loading...</p>
+      </div>
+  </div>
 
-  
 
 
+<div id="main_content">
 
         <!-- Cursor Follower -->
     <div id="cursor" class="cursor-follower fixed top-0 left-0 w-5 h-5 bg-white rounded-full shadow-[10px_10px_20px_rgba(255,255,255,0.4)] pointer-events-none"></div>
 
 
-        <nav class="relative mt-4 z-10 flex justify-between items-center h-[70px] px-10 md:px-15 ">
+        <nav id="nav" class="relative mt-4 z-10 flex justify-between items-center h-[70px] px-10 md:px-15 ">
             <div class="text-5xl font-semibold font-mono ">
                 <!-- <img class="invert h-16" src="../images/letter-v.png" alt=""> -->
                  <h1>V.</h1>
@@ -90,7 +100,7 @@
         <div class="hero_section h-[calc(100vh-80px)] flex">
             <div class="hero_left w-2/3 h-full flex items-start flex-col pl-24 z-40 pr-6 pb-7 text-white justify-between">
                 <!-- Name Section -->
-                <div class="name-top mt-24">
+                <div id="lg" class="name-top mt-24 opacity-0">
                 <h3 class="text-lg  text-white font-light tracking-wide">Hi! I’m</h3>
                 <h1 class="text-[clamp(135px,6vw,90px)] font-semibold font-pataka text-cynthia leading-tight bg-gradient-to-r from-whitebg-clip-text">
                     VIKAS SAHU
@@ -104,7 +114,7 @@
                 </div>
 
                 <!-- Social Media Icons -->
-                <div class="name-bottom flex flex-row justify-between text-white text-xl font-light relative w-[100%]">
+                <div id="herofooter" class="name-bottom flex flex-row justify-between text-white text-xl font-light relative w-[100%]">
 
                 <a href="../static/latest_cv.pdf" download="latest_cv.pdf" target="_blank" class="no-underline">
                   <button class=" relative group ">
@@ -162,10 +172,11 @@ Outside of work, I enjoy exploring various philosophies from different cultures,
 <!-- Project Section -->
  <div id="project_section" class="project_section mt-20 mb-10">
     <h1 class="text-2xl  text-cynthia">Projects</h1>
+    <h2 class="text-xs  text-cynthia">(hover on content to view)</h2>
     <div id = "projects" class="projects">
 
         <a href="https://github.com/vikassahu1/Miraat" target="_blank" class="decoration-0">
-        <div class="MIRAAT relative flex border-b-[0.1px] border-t-[0.1px] border-cynthia mt-8 items-center justify-between text-cynthia hover:text-cynthia project">
+        <div class="MIRAAT relative flex border-b-[0.1px] border-t-[0.1px] border-cynthia mt-8 items-center justify-between text-cynthia hover:text-gray-500 project">
 
             <!-- Hovering Card  -->
             <div class="absolute elem h-[200%] w-[60%] bg-red-500 z-20 translate-x-[-50%] translate-y-[-40%] opacity-0 pointer-events-none flex shadow-xl rounded-lg overflow-hidden">
@@ -208,7 +219,7 @@ Outside of work, I enjoy exploring various philosophies from different cultures,
 
 
         <a href="https://github.com/vikassahu1/student_performance_analyser" target="_blank" class="decoration-0">
-          <div class="MIRAAT relative flex border-b-[0.1px] border-t-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-cynthia project">
+          <div class="PERFORMANCE relative flex border-b-[0.1px] border-t-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-gray-500  project">
   
               <!-- Hovering Card  -->
               <div class="absolute elem h-[200%] w-[60%] bg-red-500 z-20 translate-x-[-50%] translate-y-[-40%] opacity-0 pointer-events-none flex shadow-xl rounded-lg overflow-hidden">
@@ -252,7 +263,7 @@ Outside of work, I enjoy exploring various philosophies from different cultures,
 
 
         <a href="https://github.com/vikassahu1/ClothShop" target="_blank" class="decoration-0">
-        <div class="CLOTHSHOP  flex border-b-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-cynthia relative project">
+        <div class="CLOTHSHOP  flex border-b-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-gray-500  relative project">
                 <!-- Hovering Card  -->
                 <div class="absolute elem h-[200%] w-[60%] bg-red-500 z-20 translate-x-[-50%] translate-y-[-40%] opacity-0 pointer-events-none flex shadow-xl rounded-lg overflow-hidden">
                   <!-- Left Section: Image -->
@@ -319,7 +330,7 @@ Outside of work, I enjoy exploring various philosophies from different cultures,
 
 
       <a href="https://github.com/vikassahu1/TextEdits" target="_blank" class="decoration-0">
-          <div class="TEXTEDITS flex border-b-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-cynthia relative project">
+          <div class="TEXTEDITS flex border-b-[0.1px] border-cynthia items-center justify-between text-cynthia hover:text-gray-500  relative project">
 
                       <!-- Hovering Card  -->
                     <div class="absolute elem h-[200%] w-[60%] bg-red-500 z-20 translate-x-[-50%] translate-y-[-40%] opacity-0 pointer-events-none flex shadow-xl rounded-lg overflow-hidden">
@@ -457,8 +468,11 @@ Outside of work, I enjoy exploring various philosophies from different cultures,
     </div>
   </footer>
 
+
+</div>
 <!-- <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/EasePack.min.js" integrity="sha512-3fpVLQYwQDyh4nGvxqsfPhUm54etykvg0NRmilMBePJzl3P8BKCrEvR1pIZ5yyct6XROVYtKI2eaT54heI2CfA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="module" src="../static/script.js"></script>
 </body>
