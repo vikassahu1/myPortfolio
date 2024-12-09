@@ -34,10 +34,14 @@
             position: relative; /* Force all elements into a single stacking context */
         }
     </style>
-
 </head>
 
-<body id="main" class="bg-black text-white font-sans relative mx-7">
+
+
+
+
+
+<body id="main" class="bg-black text-white font-sans relative           px-0 md:px-10 w-[100vw] overflow-x-hidden">
 
       
     <!-- Loader Section -->
@@ -52,14 +56,14 @@
 
 
 
-<div id="main_content">
+<div id="main_content overflow-hidden">
 
         <!-- Cursor Follower -->
     <div id="cursor" class="cursor-follower fixed top-0 left-0 w-5 h-5 bg-white rounded-full shadow-[10px_10px_20px_rgba(255,255,255,0.4)] pointer-events-none"></div>
 
 
-        <nav id="nav" class="relative mt-4 z-10 flex justify-between items-center h-[70px] px-10 md:px-15 ">
-            <div class="text-5xl font-semibold font-mono ">
+        <nav id="nav" class="relative md:mt-4 z-10 flex justify-between items-center md:h-[70px] px-10 md:px-15           bg-red-300 md:bg-black">
+            <div class="md:text-5xl font-semibold font-mono    text-3xl">
                 <!-- <img class="invert h-16" src="../images/letter-v.png" alt=""> -->
                  <h1>V.</h1>
             </div>
@@ -101,16 +105,16 @@
 
         <!-- Hero Section  -->
         <div class="hero_section h-[calc(100vh-80px)] flex">
-            <div class="hero_left w-2/3 h-full flex items-start flex-col pl-24 z-40 pr-6 pb-7 text-white justify-between">
+            <div class="hero_left h-full flex items-start flex-col md:pl-24 z-40 md:pr-6 md:pb-7 text-white justify-between        w-[100vw] md:w-2/3 px-7 md:px-0">
                 <!-- Name Section -->
                 <div id="lg" class="name-top mt-24 opacity-0">
                 <h3 class="text-lg  text-white font-light tracking-wide">Hi! I’m</h3>
-                <h1 class="text-[clamp(135px,6vw,90px)] font-semibold font-pataka text-cynthia leading-tight bg-gradient-to-r from-whitebg-clip-text">
+                <h1 class="font-semibold font-pataka text-cynthia leading-tight bg-gradient-to-r from-whitebg-clip-text    md:text-[clamp(135px,6vw,90px)]  text-8xl break-words">
                     VIKAS SAHU
                 </h1>
                 
                 <!-- Description Section -->
-                <p class="text-lg text-white mt-4 font-light leading-relaxed tracking-wide">
+                <p class="text-lg text-white mt-4 font-light leading-relaxed tracking-wide        break-words">
                     A <span class="font-normal text-white">Software Developer</span> with a passion for creating innovative solutions. 
                     Currently exploring AI and Data Science</span>.
                 </p>
@@ -136,11 +140,14 @@
             
             
             <!-- Right Section -->
-        <div class="hero_right w-1/3 h-full relative">
+        <div class="hero_right h-full relative           md:w-1/3  hidden md:block">
             <!-- Container for Three.js -->
             <div id="three-js-container" class="w-full h-full"></div>
         </div>
         </div>
+
+
+
 
 <!-- About Section -->
 <div id="about" class="relative h-[100vh] bg-gray-500 rounded-lg shadow-lg p-8 md:flex items-center space-y-10 md:space-y-0 md:space-x-10 overflow-hidden">
