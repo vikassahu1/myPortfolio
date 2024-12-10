@@ -119,7 +119,7 @@ async function createIconBalls(containerSelector, iconsPath, imgfile) {
     icons.forEach(icon => {
         const ballElement = document.createElement('div');
         ballElement.innerHTML = `
-<div class="relative w-24 h-24 rounded-full group">
+<div class="relative md:w-24 md:h-24 h-16 w-16 rounded-full group">
     <!-- Base layer with deep shadow -->
     <div class="absolute inset-0 bg-gray-800 rounded-full 
         shadow-[0_15px_30px_-10px_rgba(0,0,0,0.4)] 
@@ -151,14 +151,14 @@ async function createIconBalls(containerSelector, iconsPath, imgfile) {
     <img 
         src="../images/${imgfile}/${icon}.png" 
         alt="${icon}" 
-        class="absolute w-16 h-16 inset-0 m-auto 
+        class="absolute m:w-16 md:h-16  h-14 w-14 inset-0 m-auto 
         transform transition-all duration-300 
         group-hover:scale-110 group-hover:translate-z-2 
         drop-shadow-[0_10px_8px_rgba(0,0,0,0.3)]"
     >
 </div>
-<div class="absolute -bottom-6 left-8 
-     text-sm text-cynthia px-5">
+<div class="absolute md:-bottom-6 bottom-4 left-8 
+     md:text-sm text-xs transform -translate-x-3 text-cynthia ">
     ${icon.split('.')[0]} <!-- Display file name without extension -->
 </div>
         `;
