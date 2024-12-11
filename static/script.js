@@ -157,7 +157,7 @@ async function createIconBalls(containerSelector, iconsPath, imgfile) {
         drop-shadow-[0_10px_8px_rgba(0,0,0,0.3)]"
     >
 </div>
-<div class="absolute md:-bottom-6 bottom-4 left-8 
+<div class="absolute md:-bottom-6 -bottom-5 left-4 md:left-8
      md:text-sm text-xs transform -translate-x-3 text-cynthia ">
     ${icon.split('.')[0]} <!-- Display file name without extension -->
 </div>
@@ -393,4 +393,5 @@ setInterval(updateTime, 60000); // 60000ms = 1 minute
  }
 
  firstPageAnimation();
+
 
