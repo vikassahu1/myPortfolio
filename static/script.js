@@ -46,14 +46,14 @@ controls.enableRotate = false;
 controls.enableZoom = false;
 controls.enablePan = false;
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 2.6);
+const ambientLight = new THREE.AmbientLight(0xffffff, 2.2);
 scene.add(ambientLight);
 
 const topLight = new THREE.DirectionalLight(0xffffff, 0.4);
 topLight.position.set(5, 5, 5);
 scene.add(topLight);
 
-const cursorLight = new THREE.PointLight(0xffffff, 0.4, 3);
+const cursorLight = new THREE.PointLight(0xffffff, 0.1, 3);
 cursorLight.position.set(0, 0, 5);
 cursorLight.intensity = 7;
 scene.add(cursorLight);
@@ -186,29 +186,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // moving navigation menu 
-// // Select all navigation links and the moving span
-// const navLinks = document.querySelectorAll('.nav-link');
-// const navIndicator = document.getElementById('nav-indicator');
+// Select all navigation links and the moving span
+const navLinks = document.querySelectorAll('.nav-link');
+const navIndicator = document.getElementById('nav-indicator');
 
-// // Function to set the nav-indicator's position
-// function moveIndicator(link) {
-//   const offsetLeft = link.offsetLeft;
-//   const offsetWidth = link.offsetWidth;
+// Function to set the nav-indicator's position
+function moveIndicator(link) {
+  const offsetLeft = link.offsetLeft;
+  const offsetWidth = link.offsetWidth;
+  
+  // Set span position and size
+  navIndicator.style.left = `${offsetLeft}px`;
+  navIndicator.style.width = `${offsetWidth}px`;
+}
+navLinks.forEach((link, index) => {
+    link.addEventListener('mouseenter', () => moveIndicator(link));
+    
+    // Optional: Reset to first link when mouse leaves
+    link.addEventListener('mouseleave', () => {
+      // Move back to the first link
+      moveIndicator(navLinks[0]);
+    });
+  
+    // Align the indicator to the first link on page load
+    if (index === 0) {
+      moveIndicator(link);
+    }
+  });
 
-//   // Set span position and size
-//   navIndicator.style.left = `${offsetLeft}px`;
-//   navIndicator.style.width = `${offsetWidth}px`;
-// }
 
-// // Add click event listeners to all links
-// navLinks.forEach((link, index) => {
-//   link.addEventListener('click', () => moveIndicator(link));
 
-//   // Align the indicator to the first link on page load
-//   if (index === 0) {
-//     moveIndicator(link);
-//   }
-// });
+
 // Get the cursor follower element
         // Get the cursor element and skills section
         const cursor = document.getElementById("cursor");
@@ -393,5 +401,9 @@ setInterval(updateTime, 60000); // 60000ms = 1 minute
  }
 
  firstPageAnimation();
+
+
+
+
 
 
