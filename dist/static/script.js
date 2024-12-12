@@ -180,7 +180,7 @@ async function createIconBalls(containerSelector, iconsPath, imgfile) {
 
     <!-- Icon with slight 3D lift -->
     <img 
-        src="../images/${imgfile}/${icon}.png" 
+        src="images/${imgfile}/${icon}.png" 
         alt="${icon}" 
         class="absolute m:w-16 md:h-16  h-14 w-14 inset-0 m-auto 
         transform transition-all duration-300 
