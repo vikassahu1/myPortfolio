@@ -1403,40 +1403,12 @@ video {
   opacity: 0.2;
 }
 
-.opacity-60 {
-  opacity: 0.6;
-}
-
-.opacity-15 {
-  opacity: 0.15;
-}
-
-.opacity-10 {
-  opacity: 0.1;
-}
-
-.opacity-\[15\%\] {
-  opacity: 15%;
-}
-
-.opacity-\[1\] {
-  opacity: 1;
-}
-
-.opacity-\[20\%\] {
-  opacity: 20%;
-}
-
-.opacity-5 {
-  opacity: 0.05;
-}
-
 .opacity-30 {
   opacity: 0.3;
 }
 
-.opacity-35 {
-  opacity: 0.35;
+.opacity-60 {
+  opacity: 0.6;
 }
 
 .shadow {
@@ -1534,11 +1506,6 @@ video {
 .hover\:text-gray-500:hover {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity, 1));
-}
-
-.hover\:text-black:hover {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
 
 .hover\:underline:hover {
@@ -1807,11 +1774,6 @@ video {
   .md\:text-white {
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-  }
-
-  .md\:invert {
-    --tw-invert: invert(100%);
-    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
   }
 
   .md\:invert-0 {

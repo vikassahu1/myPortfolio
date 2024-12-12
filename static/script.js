@@ -70,17 +70,49 @@ window.addEventListener("resize", () => {
     camera.aspect = container.offsetWidth / container.offsetHeight;
     camera.updateProjectionMatrix();
 });
-
+let object; // Declare globally
 const loader = new GLTFLoader();
 loader.load(
     'head_of_the_buddha_anonymous_rijksmuseum.glb',
     function (gltf) {
-        const object = gltf.scene;
+        object = gltf.scene;
         object.scale.set(1, 1, 1);
         object.position.set(0, 0, 0);
-        object.rotation.y = -6.75;
+        object.rotation.y = -6.75; // Original rotation
         scene.add(object);
         console.log('Model loaded successfully');
+
+        // Original rotation to reference when scrolling back
+        const originalRotationY = object.rotation.y;
+
+        // Add scroll animation after the model is loaded
+        window.addEventListener("scroll", () => {
+            const scrollPosition = window.scrollY;
+            const viewportHeight = window.innerHeight;
+
+            if (scrollPosition >= 0 && scrollPosition <= viewportHeight) {
+                const normalizedScroll = scrollPosition / viewportHeight;
+                
+                // Limit rotation to 45 degrees (approximately 0.785 radians)
+                const maxRotation = Math.PI / 4; // 45 degrees
+                const targetRotation = originalRotationY + (normalizedScroll * maxRotation);
+
+                gsap.to(object.rotation, {
+                    y: targetRotation,
+                    ease: "power2.out",
+                    duration: 0.5 // Reduced duration for smoother interaction
+                });
+
+                // When scrolling back to top, return to original position
+                if (scrollPosition === 0) {
+                    gsap.to(object.rotation, {
+                        y: originalRotationY,
+                        ease: "power2.out",
+                        duration: 0.5
+                    });
+                }
+            }
+        });
     },
     function (xhr) {
         console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
@@ -96,7 +128,6 @@ function animate() {
     renderer.render(scene, camera);
 }
 animate();
-
 
 
 
